@@ -172,7 +172,6 @@ contract Liquidatable is PricelessPositionManager {
      * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
      */
     constructor(ConstructorParams memory params)
-        public
         PricelessPositionManager(
             params.expirationTimestamp,
             params.withdrawalLiveness,
@@ -347,11 +346,11 @@ contract Liquidatable is PricelessPositionManager {
         );
 
         // Destroy tokens
-        tokenCurrency.safeTransferFrom(msg.sender, address(this), tokensLiquidated.rawValue);
+        tokenCurrency.(msg.sender, address(this), tokensLiquidated.rawValue);
         tokenCurrency.burn(tokensLiquidated.rawValue);
 
         // Pull final fee from liquidator.
-        collateralCurrency.safeTransferFrom(msg.sender, address(this), finalFeeBond.rawValue);
+        collateralCurrency.(msg.sender, address(this), finalFeeBond.rawValue);
     }
 
     /**
@@ -400,7 +399,7 @@ contract Liquidatable is PricelessPositionManager {
         _payFinalFees(msg.sender, disputedLiquidation.finalFee);
 
         // Transfer the dispute bond amount from the caller to this contract.
-        collateralCurrency.safeTransferFrom(msg.sender, address(this), disputeBondAmount.rawValue);
+        collateralCurrency.(msg.sender, address(this), disputeBondAmount.rawValue);
     }
 
     /**

@@ -179,7 +179,7 @@ contract PricelessPositionManager is FeePayer {
         address _timerAddress,
         address _excessTokenBeneficiary,
         address _financialProductLibraryAddress
-    ) public FeePayer(_collateralAddress, _finderAddress, _timerAddress) nonReentrant() {
+    ) FeePayer(_collateralAddress, _finderAddress, _timerAddress) nonReentrant() {
         require(_expirationTimestamp > getCurrentTime());
         require(_getIdentifierWhitelist().isIdentifierSupported(_priceIdentifier));
 
@@ -287,7 +287,7 @@ contract PricelessPositionManager is FeePayer {
         emit Deposit(sponsor, collateralAmount.rawValue);
 
         // Move collateral currency from sender to contract.
-        collateralCurrency.safeTransferFrom(msg.sender, address(this), collateralAmount.rawValue);
+        collateralCurrency.(msg.sender, address(this), collateralAmount.rawValue);
     }
 
     /**
@@ -456,7 +456,7 @@ contract PricelessPositionManager is FeePayer {
         emit PositionCreated(msg.sender, collateralAmount.rawValue, numTokens.rawValue);
 
         // Transfer tokens into the contract from caller and mint corresponding synthetic tokens to the caller's address.
-        collateralCurrency.safeTransferFrom(msg.sender, address(this), collateralAmount.rawValue);
+        collateralCurrency.(msg.sender, address(this), collateralAmount.rawValue);
         require(tokenCurrency.mint(msg.sender, numTokens.rawValue));
     }
 
@@ -503,7 +503,7 @@ contract PricelessPositionManager is FeePayer {
 
         // Transfer collateral from contract to caller and burn callers synthetic tokens.
         collateralCurrency.safeTransfer(msg.sender, amountWithdrawn.rawValue);
-        tokenCurrency.safeTransferFrom(msg.sender, address(this), numTokens.rawValue);
+        tokenCurrency.(msg.sender, address(this), numTokens.rawValue);
         tokenCurrency.burn(numTokens.rawValue);
     }
 
@@ -570,7 +570,7 @@ contract PricelessPositionManager is FeePayer {
 
         // Transfer tokens & collateral and burn the redeemed tokens.
         collateralCurrency.safeTransfer(msg.sender, amountWithdrawn.rawValue);
-        tokenCurrency.safeTransferFrom(msg.sender, address(this), tokensToRedeem.rawValue);
+        tokenCurrency.(msg.sender, address(this), tokensToRedeem.rawValue);
         tokenCurrency.burn(tokensToRedeem.rawValue);
     }
 

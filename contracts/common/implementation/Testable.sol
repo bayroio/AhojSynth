@@ -46,7 +46,7 @@ abstract contract Testable {
         if (timerAddress != address(0x0)) {
             return Timer(timerAddress).getCurrentTime();
         } else {
-            return now; // solhint-disable-line not-rely-on-time
+            return block.timestamp; //now; // solhint-disable-line not-rely-on-time
         }
     }
 }
