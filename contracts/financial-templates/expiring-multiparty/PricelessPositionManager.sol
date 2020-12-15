@@ -503,7 +503,7 @@ contract PricelessPositionManager is FeePayer {
 
         // Transfer collateral from contract to caller and burn callers synthetic tokens.
         collateralCurrency.safeTransfer(msg.sender, amountWithdrawn.rawValue);
-        tokenCurrency.(msg.sender, address(this), numTokens.rawValue);
+        tokenCurrency.safeTransferFrom(msg.sender, address(this), numTokens.rawValue);
         tokenCurrency.burn(numTokens.rawValue);
     }
 
@@ -570,7 +570,7 @@ contract PricelessPositionManager is FeePayer {
 
         // Transfer tokens & collateral and burn the redeemed tokens.
         collateralCurrency.safeTransfer(msg.sender, amountWithdrawn.rawValue);
-        tokenCurrency.(msg.sender, address(this), tokensToRedeem.rawValue);
+        tokenCurrency.safeTransferFrom(msg.sender, address(this), tokensToRedeem.rawValue);
         tokenCurrency.burn(tokensToRedeem.rawValue);
     }
 
