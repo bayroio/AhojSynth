@@ -456,7 +456,7 @@ contract PricelessPositionManager is FeePayer {
         emit PositionCreated(msg.sender, collateralAmount.rawValue, numTokens.rawValue);
 
         // Transfer tokens into the contract from caller and mint corresponding synthetic tokens to the caller's address.
-        collateralCurrency.(msg.sender, address(this), collateralAmount.rawValue);
+        collateralCurrency.safeTransferFrom(msg.sender, address(this), collateralAmount.rawValue);
         require(tokenCurrency.mint(msg.sender, numTokens.rawValue));
     }
 
