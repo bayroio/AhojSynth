@@ -287,7 +287,7 @@ contract PricelessPositionManager is FeePayer {
         emit Deposit(sponsor, collateralAmount.rawValue);
 
         // Move collateral currency from sender to contract.
-        collateralCurrency.(msg.sender, address(this), collateralAmount.rawValue);
+        collateralCurrency.safeTransferFrom(msg.sender, address(this), collateralAmount.rawValue);
     }
 
     /**

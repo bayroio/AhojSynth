@@ -76,7 +76,7 @@ abstract contract FeePayer is AdministrateeInterface, Testable, Lockable {
         address _collateralAddress,
         address _finderAddress,
         address _timerAddress
-    ) public Testable(_timerAddress) {
+    ) Testable(_timerAddress) {
         collateralCurrency = IERC20(_collateralAddress);
         finder = FinderInterface(_finderAddress);
         lastPaymentTime = getCurrentTime();

@@ -346,11 +346,11 @@ contract Liquidatable is PricelessPositionManager {
         );
 
         // Destroy tokens
-        tokenCurrency.(msg.sender, address(this), tokensLiquidated.rawValue);
+        tokenCurrency.safeTransferFrom(msg.sender, address(this), tokensLiquidated.rawValue);
         tokenCurrency.burn(tokensLiquidated.rawValue);
 
         // Pull final fee from liquidator.
-        collateralCurrency.(msg.sender, address(this), finalFeeBond.rawValue);
+        collateralCurrency.safeTransferFrom(msg.sender, address(this), finalFeeBond.rawValue);
     }
 
     /**
