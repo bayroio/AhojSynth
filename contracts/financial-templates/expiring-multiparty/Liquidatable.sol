@@ -399,7 +399,7 @@ contract Liquidatable is PricelessPositionManager {
         _payFinalFees(msg.sender, disputedLiquidation.finalFee);
 
         // Transfer the dispute bond amount from the caller to this contract.
-        collateralCurrency.(msg.sender, address(this), disputeBondAmount.rawValue);
+        collateralCurrency.safeTransferFrom(msg.sender, address(this), disputeBondAmount.rawValue);
     }
 
     /**
