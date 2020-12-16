@@ -42,6 +42,10 @@ build/Release
 /node_modules
 node_modules/
 jspm_packages/
+/artifacts
+artifacts/
+/cache
+cache/
 
 # TypeScript v1 declaration files
 typings/
