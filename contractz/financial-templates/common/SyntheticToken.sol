@@ -21,7 +21,7 @@ contract SyntheticToken is ExpandedERC20, Lockable {
         string memory tokenName,
         string memory tokenSymbol,
         uint8 tokenDecimals
-    ) ExpandedERC20(tokenName, tokenSymbol, tokenDecimals) nonReentrant() {}
+    ) public ExpandedERC20(tokenName, tokenSymbol, tokenDecimals) nonReentrant() {}
 
     /**
      * @notice Add Minter role to account.

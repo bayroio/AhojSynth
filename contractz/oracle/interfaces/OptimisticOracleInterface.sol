@@ -58,7 +58,7 @@ abstract contract OptimisticOracleInterface {
     function requestPrice(
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData,
+        bytes calldata ancillaryData, //bytes memory ancillaryData,
         IERC20 currency,
         uint256 reward
     ) external virtual returns (uint256 totalBond);
@@ -75,7 +75,7 @@ abstract contract OptimisticOracleInterface {
     function setBond(
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData,
+        bytes calldata ancillaryData, //bytes memory ancillaryData,
         uint256 bond
     ) external virtual returns (uint256 totalBond);
 
@@ -90,7 +90,7 @@ abstract contract OptimisticOracleInterface {
     function setRefundOnDispute(
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData
+        bytes calldata ancillaryData, //bytes memory ancillaryData
     ) external virtual;
 
     /**
@@ -104,7 +104,7 @@ abstract contract OptimisticOracleInterface {
     function setCustomLiveness(
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData,
+        bytes calldata ancillaryData, //bytes memory ancillaryData,
         uint256 customLiveness
     ) external virtual;
 
@@ -125,7 +125,7 @@ abstract contract OptimisticOracleInterface {
         address requester,
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData,
+        bytes calldata ancillaryData, //bytes memory ancillaryData,
         int256 proposedPrice
     ) public virtual returns (uint256 totalBond);
 
@@ -143,7 +143,7 @@ abstract contract OptimisticOracleInterface {
         address requester,
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData,
+        bytes calldata ancillaryData, //bytes memory ancillaryData,
         int256 proposedPrice
     ) external virtual returns (uint256 totalBond);
 
@@ -163,7 +163,7 @@ abstract contract OptimisticOracleInterface {
         address requester,
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData
+        bytes calldata ancillaryData, //bytes memory ancillaryData
     ) public virtual returns (uint256 totalBond);
 
     /**
@@ -179,7 +179,7 @@ abstract contract OptimisticOracleInterface {
         address requester,
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData
+        bytes calldata ancillaryData, //bytes memory ancillaryData
     ) external virtual returns (uint256 totalBond);
 
     /**
@@ -194,7 +194,7 @@ abstract contract OptimisticOracleInterface {
     function getPrice(
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData
+        bytes calldata ancillaryData, //bytes memory ancillaryData
     ) external virtual returns (int256);
 
     /**
@@ -210,7 +210,7 @@ abstract contract OptimisticOracleInterface {
         address requester,
         bytes32 identifier,
         uint256 timestamp,
-        bytes memory ancillaryData
+        bytes calldata ancillaryData, //bytes memory ancillaryData
     ) external virtual returns (uint256 payout);
 
     /**

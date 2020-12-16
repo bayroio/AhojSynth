@@ -13,7 +13,7 @@ import "./Constants.sol";
 abstract contract ContractCreator {
     address internal finderAddress;
 
-    constructor(address _finderAddress) {
+    constructor(address _finderAddress) public {
         finderAddress = _finderAddress;
     }
 

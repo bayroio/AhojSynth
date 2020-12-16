@@ -8,7 +8,7 @@ pragma solidity ^0.6.0;
 contract Timer {
     uint256 private currentTime;
 
-    constructor() {
+    constructor() public {
         currentTime = block.timestamp; //now; // solhint-disable-line not-rely-on-time
     }
 

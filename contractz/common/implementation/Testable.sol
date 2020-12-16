@@ -17,7 +17,7 @@ abstract contract Testable {
      * @param _timerAddress Contract that stores the current time in a testing environment.
      * Must be set to 0x0 for production environments that use live time.
      */
-    constructor(address _timerAddress) {
+    constructor(address _timerAddress) internal {
         timerAddress = _timerAddress;
     }
 

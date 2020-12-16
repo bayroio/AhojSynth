@@ -180,7 +180,7 @@ contract PricelessPositionManager is FeePayer {
         address _timerAddress,
         address _excessTokenBeneficiary,
         address _financialProductLibraryAddress
-    ) FeePayer(_collateralAddress, _finderAddress, _timerAddress) nonReentrant() {
+    ) public FeePayer(_collateralAddress, _finderAddress, _timerAddress) nonReentrant() {
         require(_expirationTimestamp > getCurrentTime());
         require(_getIdentifierWhitelist().isIdentifierSupported(_priceIdentifier));
 

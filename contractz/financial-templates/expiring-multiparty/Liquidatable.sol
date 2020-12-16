@@ -172,7 +172,7 @@ contract Liquidatable is PricelessPositionManager {
      * @param params struct to define input parameters for construction of Liquidatable. Some params
      * are fed directly into the PricelessPositionManager's constructor within the inheritance tree.
      */
-    constructor(ConstructorParams memory params)
+    constructor(ConstructorParams memory params) public
         PricelessPositionManager(
             params.expirationTimestamp,
             params.withdrawalLiveness,

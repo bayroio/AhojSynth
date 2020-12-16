@@ -4,7 +4,7 @@ require("@nomiclabs/hardhat-waffle");
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  compilers: [
+  /*compilers: [
     {
       version: "0.7.3"
     },
@@ -12,6 +12,7 @@ module.exports = {
       version: "0.6.0",
       settings: { } 
     }
-  ]
-  //solidity: "0.7.3",
+  ]*/
+  solidity: "0.7.3",
+  //solidity: "0.6.0",
 };
