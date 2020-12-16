@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0-only
-//pragma solidity ^0.7.3;
-pragma solidity ^0.6.0;
+pragma solidity ^0.7.3;
 
 import "./SyntheticToken.sol";
 import "../../common/interfaces/ExpandedIERC20.sol";
-import "../../common/implementation/Lockable.sol";
 
 /**
  * @title Factory for creating new mintable and burnable tokens.
  */
 
-contract TokenFactory is Lockable {
+contract TokenFactory {
     /**
      * @notice Create a new token and return it to the caller.
      * @dev The caller will become the only minter and burner and the new owner capable of assigning the roles.
@@ -23,7 +21,7 @@ contract TokenFactory is Lockable {
         string calldata tokenName,
         string calldata tokenSymbol,
         uint8 tokenDecimals
-    ) external nonReentrant() returns (ExpandedIERC20 newToken) {
+    ) external returns (ExpandedIERC20 newToken) {
         SyntheticToken mintableToken = new SyntheticToken(tokenName, tokenSymbol, tokenDecimals);
         mintableToken.addMinter(msg.sender);
         mintableToken.addBurner(msg.sender);
