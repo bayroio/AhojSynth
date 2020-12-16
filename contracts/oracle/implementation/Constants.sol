@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity ^0.7.3;
+//pragma solidity ^0.7.3;
+pragma solidity ^0.6.0;
 
 /**
  * @title Stores common interface names used throughout the DVM by registration in the Finder.

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity ^0.7.3;
+//pragma solidity ^0.7.3;
+pragma solidity ^0.6.0;
 
 import "../interfaces/FinderInterface.sol";
 import "../../common/implementation/AddressWhitelist.sol";
